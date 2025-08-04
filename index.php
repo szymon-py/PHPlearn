@@ -9,32 +9,22 @@
 
 <body>
     <form action="index.php" method="post">
-        <label>x: </label>
-        <input type="text" name="x"><br>
-        <label>y: </label>
-        <input type="text" name="y"><br>
-        <label>z: </label>
-        <input type="text" name="z">
-        <input type="submit" name="total">
-
-    </form>
+        <label>radius in cm: </label>
+        <input type="text" name="radius">
+        <input type="submit" value="calculate">
+    </form><br>
 </body>
 
 </html>
 <?php
-$x = $_POST["x"];
-$y = $_POST["y"];
-$z = $_POST["z"];
-$total = null;
+$radius = $_POST["radius"];
+$circumference = null;
 
-//$total = abs($x);
-// $total = round($x);
-// $total = floor($x);
-// $total = ceil($x);
-// $total = pow($x, $y);
-//$total = max($x, $y, $z);
-// $total = min($x, $y, $z);
-// $total = pi();
-$total = rand(1, 6);
-echo $total
+$circumference = round((2 * pi() * $radius), 2);
+$area = round(pi() * pow($radius, 2), 2);
+$volue = round(4 / 3 * pi() * pow($radius, 3), 2);
+
+echo "Circumference is: {$circumference}cm <br>";
+echo "Area is: {$area}cm^2 <br>";
+echo "Volue is: {$volue}cm^3 <br>";
 ?>
