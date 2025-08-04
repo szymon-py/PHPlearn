@@ -8,23 +8,34 @@
 </head>
 
 <body>
-    <form action="index.php" method="post">
-        <label>radius in cm: </label>
-        <input type="text" name="radius">
-        <input type="submit" value="calculate">
-    </form><br>
+
 </body>
 
 </html>
 <?php
-$radius = $_POST["radius"];
-$circumference = null;
+// $age = 0;
+// $adult = true;
+// if ($age >= 18) {
+//     echo "You may enter this site";
+// } elseif ($age <= 0) {
+//     echo "Not a valid age";
+// } else {
+//     echo "You must be 18+ to enter";
+// }
 
-$circumference = round((2 * pi() * $radius), 2);
-$area = round(pi() * pow($radius, 2), 2);
-$volue = round(4 / 3 * pi() * pow($radius, 3), 2);
+$hours = 50;
+$rate = 15;
+$weekly_pay = null;
 
-echo "Circumference is: {$circumference}cm <br>";
-echo "Area is: {$area}cm^2 <br>";
-echo "Volue is: {$volue}cm^3 <br>";
+
+if ($hours <= 0) {
+    $weekly_pay = 0;
+} elseif ($hours <= 40) {
+    $weekly_pay = $hours * $rate;
+} else {
+    $weekly_pay = ($rate * 40) + (($hours - 40) * ($rate * 1.5));
+}
+
+echo "Salary: \${$weekly_pay}"
+
 ?>
