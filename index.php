@@ -9,46 +9,30 @@
 
 <body>
     <form action="index.php" method="post">
-        <label>Enter a country</label>
-        <input type="text" name="country">
-        <input type="submit" value="search">
+        <label>username</label>
+        <input type="text" name="username">
+        <br>
+        <label>password</label>
+        <input type="text" name="password"> <br>
+        <input type="submit" value="Log In" name="login">
     </form>
 </body>
 
 </html>
 <?php
-// $foods = array("apple", "bannana", "orange");
+foreach ($_POST as $key => $value) {
+    echo "{$key} = {$value} <br>";
+}
 
-// // array_push($foods, "pineapple", "kiwi");
-// // array_pop($foods);
-// // array_shift($foods);
-// $foods = array_reverse($foods);
-// echo count($foods) . "<br>";
-
-// foreach ($foods as $food) {
-//     echo $food . "<br>";
+// if (isset($_POST["login"])) {
+//     $username = $_POST["username"];
+//     $password = $_POST["password"];
+//     if (empty($username)) {
+//         echo "Username is missing";
+//     } elseif (empty($password)) {
+//         echo "Password is missing";
+//     } else {
+//         echo "Welcome {$username}";
+//     }
 // }
-
-
-// associative arrays
-
-$capitals = array(
-    "Poland" => "Warsaw",
-    "USA" => "Washington D.C",
-    "Japan" => "Kyoto",
-    "Germany" => "Berlin"
-);
-
-// $capitals["Poland"] = "Cracow";
-// $capitals["China"] = "Beijing";
-
-
-// foreach ($capitals as $key => $value) {
-//     echo $value . " = " .  $key . "<br>";
-// }
-
-
-$capital = $capitals[$_POST["country"]];
-
-echo $capital;
 ?>
