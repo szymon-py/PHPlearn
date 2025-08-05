@@ -9,28 +9,27 @@
 
 <body>
     <form action="index.php" method="post">
-        <label>Enter a number to count to:</label><br>
-        <input type="text" name="counterup"><br>
-        <label>Enter a number to count down from:</label><br>
-        <input type="text" name="counterdown"><br>
-        <input type="submit" value="start">
+        <input type="submit" name="stop" value="stop">
     </form>
 </body>
 
 </html>
 <?php
-// for ($i = 10; $i > 0; $i--) {
-//     echo $i . "<br>";
+// $counter = 0;
+// while ($counter <= 10) {
+//     $counter++;
+//     echo $counter . "<br>";
 // }
 
-$counterup = $_POST["counterup"];
-$counterdown = $_POST["counterdown"];
+$seconds = 0;
+$runing = true;
 
-for ($i = 1; $i <= $counterup; $i++) {
-    echo $i . "<br>";
-}
-
-for ($i = $counterdown; $i > 0; $i--) {
-    echo $i . "<br>";
+while ($runing) {
+    if (isset($_POST["stop"])) {
+        $runing = false;
+    } else {
+        $seconds++;
+        echo $seconds . "<br>";
+    }
 }
 ?>
