@@ -13,27 +13,33 @@
 
 </html>
 <?php
-$grade = "G";
+$date = date("l");
 
-switch ($grade) {
-    case "A":
-        echo "you did great";
+
+switch ($date) {
+    case "Monday":
+        echo "Ugh, it's Monday again 😩. Coffee, anyone?";
         break;
-    case "B":
-        echo "you did good";
+    case "Tuesday":
+        echo "Hey, at least it's not Monday!";
         break;
-    case "C":
-        echo "you did okej";
+    case "Wensday":
+        echo "It's Hump Day 🐪 — halfway to the weekend!";
         break;
-    case "D":
-        echo "you did bad";
+    case "Thursday":
+        echo "Almost there... Friday is waving 👋";
         break;
-    case "F":
-        echo "you failed";
+    case "Friday":
+        echo "Friday vibes! Time to pretend to work 😎";
+        break;
+    case "Saturday":
+        echo "Weekend mode: ON 🎉 Sleep in, chill out.";
+        break;
+    case "Sunday":
+        echo "Sunday scaries incoming 😬. Relax while you can.";
         break;
     default:
-        echo "Not valid";
-        break;
+        echo "You are not from the earth 🌎";
 }
 
 ?>
