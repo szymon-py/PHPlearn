@@ -13,53 +13,27 @@
 
 </html>
 <?php
-// $age = 0;
-// $adult = true;
-// if ($age >= 18) {
-//     echo "You may enter this site";
-// } elseif ($age <= 0) {
-//     echo "Not a valid age";
-// } else {
-//     echo "You must be 18+ to enter";
-// }
+$grade = "G";
 
-// $hours = 50;
-// $rate = 15;
-// $weekly_pay = null;
-
-
-// if ($hours <= 0) {
-//     $weekly_pay = 0;
-// } elseif ($hours <= 40) {
-//     $weekly_pay = $hours * $rate;
-// } else {
-//     $weekly_pay = ($rate * 40) + (($hours - 40) * ($rate * 1.5));
-// }
-
-// echo "Salary: \${$weekly_pay}"
-
-// $temp = 25;
-// $cloudy = true;
-
-// if ($temp >= 0 && $temp <= 30) {
-//     echo "The wether is good <br>";
-// } else {
-//     echo "The wether is bad <br>";
-// }
-
-// if ($cloudy) {
-//     echo "It's cloudy";
-// } else {
-//     echo "It's sunny";
-// }
-
-$age = 18;
-$citizen = true;
-
-if ($age >= 18 && $citizen) {
-    echo "You can vote";
-} else {
-    echo "Sorry you cant vote";
+switch ($grade) {
+    case "A":
+        echo "you did great";
+        break;
+    case "B":
+        echo "you did good";
+        break;
+    case "C":
+        echo "you did okej";
+        break;
+    case "D":
+        echo "you did bad";
+        break;
+    case "F":
+        echo "you failed";
+        break;
+    default:
+        echo "Not valid";
+        break;
 }
 
 ?>
