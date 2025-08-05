@@ -8,28 +8,20 @@
 </head>
 
 <body>
-    <form action="index.php" method="post">
-        <input type="submit" name="stop" value="stop">
-    </form>
+
 </body>
 
 </html>
 <?php
-// $counter = 0;
-// while ($counter <= 10) {
-//     $counter++;
-//     echo $counter . "<br>";
-// }
+$foods = array("apple", "bannana", "orange");
 
-$seconds = 0;
-$runing = true;
+// array_push($foods, "pineapple", "kiwi");
+// array_pop($foods);
+// array_shift($foods);
+$foods = array_reverse($foods);
+echo count($foods) . "<br>";
 
-while ($runing) {
-    if (isset($_POST["stop"])) {
-        $runing = false;
-    } else {
-        $seconds++;
-        echo $seconds . "<br>";
-    }
+foreach ($foods as $food) {
+    echo $food . "<br>";
 }
 ?>
