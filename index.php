@@ -8,38 +8,29 @@
 </head>
 
 <body>
-
+    <form action="index.php" method="post">
+        <label>Enter a number to count to:</label><br>
+        <input type="text" name="counterup"><br>
+        <label>Enter a number to count down from:</label><br>
+        <input type="text" name="counterdown"><br>
+        <input type="submit" value="start">
+    </form>
 </body>
 
 </html>
 <?php
-$date = date("l");
+// for ($i = 10; $i > 0; $i--) {
+//     echo $i . "<br>";
+// }
 
+$counterup = $_POST["counterup"];
+$counterdown = $_POST["counterdown"];
 
-switch ($date) {
-    case "Monday":
-        echo "Ugh, it's Monday again 😩. Coffee, anyone?";
-        break;
-    case "Tuesday":
-        echo "Hey, at least it's not Monday!";
-        break;
-    case "Wensday":
-        echo "It's Hump Day 🐪 — halfway to the weekend!";
-        break;
-    case "Thursday":
-        echo "Almost there... Friday is waving 👋";
-        break;
-    case "Friday":
-        echo "Friday vibes! Time to pretend to work 😎";
-        break;
-    case "Saturday":
-        echo "Weekend mode: ON 🎉 Sleep in, chill out.";
-        break;
-    case "Sunday":
-        echo "Sunday scaries incoming 😬. Relax while you can.";
-        break;
-    default:
-        echo "You are not from the earth 🌎";
+for ($i = 1; $i <= $counterup; $i++) {
+    echo $i . "<br>";
 }
 
+for ($i = $counterdown; $i > 0; $i--) {
+    echo $i . "<br>";
+}
 ?>
