@@ -8,27 +8,25 @@
 </head>
 
 <body>
-    <form action="index.php" method="post">
-        <label>Select food you like</label> <br>
-        <input type="checkbox" name="foods[]" value="Pizza">
-        Pizza <br>
-        <input type="checkbox" name="foods[]" value="Burger">
-        Burger <br>
-        <input type="checkbox" name="foods[]" value="Hotdog">
-        Hotdog <br>
-        <input type="checkbox" name="foods[]" value="Taco">
-        Taco <br>
-        <input type="submit" value="Submit" name="submit">
-    </form>
+
 </body>
 
 </html>
 <?php
-if (isset($_POST["submit"])) {
-    $foods = $_POST["foods"];
+// function is_odd($x)
+// {
+//     if ($x % 2 == 0) {
+//         echo "is odd";
+//     } else {
+//         echo "is even";
+//     }
+// }
+// is_odd(3);
 
-    foreach ($foods as $food) {
-        echo $food . "<br>";
-    }
+function hypotenuse(float $a, float $b)
+{
+    $c = sqrt($a ** 2 + $b ** 2);
+    return $c;
 }
+echo hypotenuse(3, 4)
 ?>
