@@ -9,37 +9,46 @@
 
 <body>
     <form action="index.php" method="post">
-        <input type="radio" value="Visa" name="credit_card">
-        Visa <br>
-        <input type="radio" value="MasterCard" name="credit_card">
-        MasterCard <br>
-        <input type="radio" value="AmericanExpress" name="credit_card">
-        AmericanExpress <br>
-        <input type="submit" name="confirm" value="confirm">
+        <label>Select food you like</label> <br>
+        <input type="checkbox" name="pizza" value="Pizza">
+        Pizza <br>
+        <input type="checkbox" name="burger" value="Burger">
+        Burger <br>
+        <input type="checkbox" name="hotdog" value="Hotdog">
+        Hotdog <br>
+        <input type="checkbox" name="taco" value="Taco">
+        Taco <br>
+        <input type="submit" value="Submit" name="submit">
     </form>
 </body>
 
 </html>
 <?php
-if (isset($_POST["confirm"])) {
-    $credit_card = null;
+if (isset($_POST["submit"])) {
 
-    if (isset($_POST["credit_card"])) {
-        $credit_card = $_POST["credit_card"];
+    if (isset($_POST["pizza"])) {
+        echo "You like pizza <br>";
     }
-    switch ($credit_card) {
-        case "Visa":
-            echo "You selected Visa";
-            break;
-        case "MasterCard":
-            echo "You selected MasterCard";
-            break;
-        case "AmericanExpress":
-            echo "You selected AmericanExpress";
-            break;
-        default:
-            echo "Please make a selection";
+    if (isset($_POST["burger"])) {
+        echo "You like burger<br>";
+    }
+    if (isset($_POST["hotdog"])) {
+        echo "You like hotdog<br>";
+    }
+    if (isset($_POST["taco"])) {
+        echo "You like taco<br>";
+    }
+    if (empty($_POST["pizza"])) {
+        echo "You DON'T like pizza <br>";
+    }
+    if (empty($_POST["burger"])) {
+        echo "You DON'T like burger<br>";
+    }
+    if (empty($_POST["hotdog"])) {
+        echo "You DON'T like hotdog<br>";
+    }
+    if (empty($_POST["taco"])) {
+        echo "You DON'T like taco<br>";
     }
 }
-
 ?>
