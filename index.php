@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,28 +8,32 @@ session_start();
 </head>
 
 <body>
-    <form action="index.php" method="post">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         username
         <input type="text" name="username"><br>
-        password
-        <input type="password" name="password"><br>
-        <input type="submit" name="login" value="login"><br>
+        <input type="submit" name="submit">
     </form>
 </body>
 
 </html>
 
 <?php
-if (isset($_POST["login"])) {
+// if (isset($_POST["submit"])) {
+//     echo "{$key} = {$value} <br>";
+// }
 
-    if (!empty($_POST["username"] && $_POST["password"])) {
-
-        $_SESSION["username"] = $_POST["username"];
-        $_SESSION["password"] = $_POST["password"];
-
-        header("Location: home.php");
-    } else {
-        echo "Missing username/password";
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "HELLO <br>";
 }
+
+$password = "pizza123";
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+if (password_verify("pizza123", $hash)) {
+    echo "you are logged in <br>";
+} else {
+    echo "incorrect password";
+}
+
 ?>
