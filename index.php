@@ -1,3 +1,24 @@
+<?php
+include("database.php");
+
+if (isset($_POST["submit"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (user, password)
+        VALUES ('$username', '$hash')";
+
+    try {
+        mysqli_query($conn, $sql);
+        echo "User added";
+    } catch (mysqli_sql_exception) {
+        echo "could not register user";
+    }
+}
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,32 +29,11 @@
 </head>
 
 <body>
-    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        username
-        <input type="text" name="username"><br>
-        <input type="submit" name="submit">
+    <form method="post">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" name="submit" value="Register">
     </form>
 </body>
 
 </html>
-
-<?php
-// if (isset($_POST["submit"])) {
-//     echo "{$key} = {$value} <br>";
-// }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "HELLO <br>";
-}
-
-$password = "pizza123";
-
-$hash = password_hash($password, PASSWORD_DEFAULT);
-
-if (password_verify("pizza123", $hash)) {
-    echo "you are logged in <br>";
-} else {
-    echo "incorrect password";
-}
-
-?>
