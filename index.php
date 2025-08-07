@@ -1,22 +1,5 @@
 <?php
 include("database.php");
-
-if (isset($_POST["submit"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (user, password)
-        VALUES ('$username', '$hash')";
-
-    try {
-        mysqli_query($conn, $sql);
-        echo "User added";
-    } catch (mysqli_sql_exception) {
-        echo "could not register user";
-    }
-}
-mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +12,39 @@ mysqli_close($conn);
 </head>
 
 <body>
-    <form method="post">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" name="submit" value="Register">
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        <h2>Welcome to Fakebook!</h2>
+        Username:
+        <input type="text" name="username"><br>
+        Password:
+        <input type="password" name="password"><br>
+        <input type="submit" name="login" value="Register"><br>
     </form>
 </body>
 
 </html>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    if (empty($username)) {
+        echo "Enter username";
+    } elseif (empty($password)) {
+        echo "Enter password";
+    } else {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO users (user, password) VALUES ('$username', '$hash')";
+
+        try {
+            mysqli_query($conn, $sql);
+            echo "Registered!";
+        } catch (mysqli_sql_exception) {
+            echo "That username is taken";
+        }
+    }
+}
+mysqli_close($conn);
+?>
